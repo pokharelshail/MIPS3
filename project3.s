@@ -11,3 +11,8 @@
             la $s0, reply
             li $s1, 0 			#start pointer to make sure that we collect only 4 characters and a comma.
             li $s2, 0			#end pointer to make sure what characters we have collected and read.
+	list:
+	    la $s1, ($s2)		#content of s2 has been passed as data of s1 to make sure iterate through the string, from start pointer to end pointer.
+	substring:
+	    add $t1, $s0, $s2 	        #iterator taking the pointers sum
+            lb $t2, 0($t1) 		#loading the current character
