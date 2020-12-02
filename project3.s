@@ -16,7 +16,8 @@
 	substring:
 	    add $t1, $s0, $s2 	        #iterator taking the pointers sum
             lb $t2, 0($t1) 		#loading the current character
-
 	    beq $t2, 0, end_of_substring #a few criteron to exit the loop while iterating through the substrings
             beq $t2, 10, end_of_substring
             beq $t2, 44, end_of_substring
+ 	    add $s2, $s2, 1     #Increasing the count of the iterator pointer so that we move through the string.
+            j substring
