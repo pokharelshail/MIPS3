@@ -3,3 +3,7 @@
     not_valid: .asciiz "NaN"
 .text
          main:
+	    li $v0, 8			#Taking the user input for strings
+            la $a0, reply
+            li $a1, 1001
+            syscall
