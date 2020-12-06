@@ -21,3 +21,9 @@
             beq $t2, 44, end_of_substring
  	    add $s2, $s2, 1     #Increasing the count of the iterator pointer so that we move through the string.
             j substring
+	end_of_substring:	#now we reach at the end of substring, it will contain subprogram calls and stack operation.      			
+            la $a0, ($s1)	#loading arguments to make a subprogram_B call
+            la $a1, ($s2)
+
+            			#calling subprogramB after passing the contents from a0 and a1
+            jal subprogram_B
