@@ -40,3 +40,13 @@
             li $a0, 44
             syscall
             j list
+	     end_wl:
+        			#This following set of lines is to end the program after calling all the subprograms.
+            li $v0, 10
+            syscall
+	    subprogram_B:
+            la $s7, ($ra)	#loading the value from $ra to register $s7
+            la $t9, ($a0)	#loading the value from $a0 to register $t9
+
+            addi $t8, $a1, 0 	#storing the end address
+            la $t7, reply  	#loading the first address of the user input
