@@ -50,3 +50,7 @@
 
             addi $t8, $a1, 0 	#storing the end address
             la $t7, reply  	#loading the first address of the user input
+  	    space_front:
+                beq $t9, $t8, end_deletion  #This will check for the empty substrings or exit the loop after spotting one.
+                add $t6, $t7, $t9
+                lb $t5, ($t6)		    #loading the first word from the substring
