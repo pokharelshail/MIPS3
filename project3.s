@@ -36,3 +36,7 @@
             beq $t2, 10, end_wl
 
             addi $s2, $s2, 1 	#incrementing the iterator
+	    li $v0, 11		#formatting the print values returned from subprogram C with comma and ending the program
+            li $a0, 44
+            syscall
+            j list
