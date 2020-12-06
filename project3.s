@@ -27,3 +27,12 @@
 
             			#calling subprogramB after passing the contents from a0 and a1
             jal subprogram_B
+	    jal subprogram_C
+
+            			#the return values of the subprogram_B stays in the stack which is used by the subprogram_C
+
+            			#ending the strings with end character and newline character
+            beq $t2, 0, end_wl
+            beq $t2, 10, end_wl
+
+            addi $s2, $s2, 1 	#incrementing the iterator
