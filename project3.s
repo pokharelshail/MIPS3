@@ -60,7 +60,7 @@
 	   add_for_loop:	#code for iterating through the string
                 addi $t9, $t9, 1
                 j space_front
-		back:		#checking if there is space at the back of the string
+	    back:		#checking if there is space at the back of the string
                 beq $t9, $t8, end_deletion #if ends meet the begining, we end the process
                 add $t6, $t7, $t8
                 addi $t6, $t6, -1
@@ -83,6 +83,11 @@
 	        jal sub_programA	#will check if the number is valid in our base system and then converts using subprogram.
                 bne $v0, 0, continue
                 j not_a_number
+ 	   continue:             #converting the string  to decimal             
+                mul $t4, $t4, 35  #Multiplying by 35 as I have the base 35
+                sub $t6, $t5, $v1
+                add $t4, $t4, $t6
+                addi $s6, $s6, 1	#incrementing s6 after processing each character
 
     
 
