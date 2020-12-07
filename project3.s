@@ -80,7 +80,9 @@
                 add $t6, $t7, $t9
                 lb $t5, ($t6)
                 la $a0, ($t5)
-
+	        jal sub_programA	#will check if the number is valid in our base system and then converts using subprogram.
+                bne $v0, 0, continue
+                j not_a_number
 
     
 
