@@ -65,6 +65,12 @@
                 add $t6, $t7, $t8
                 addi $t6, $t6, -1
                 lb $t5, ($t6)
+ 		beq $t5, 32, down #moving down the list and moving through each word until 4*8 characters are processed
+                beq $t5, 9, down
+                j end_deletion
+            down:
+                addi $t8, $t8, -1
+                j back
 
     
 
