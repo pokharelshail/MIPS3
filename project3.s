@@ -75,6 +75,11 @@
                 beq $t9, $t8, not_a_number #When the string is empty , then print NaN
                 li $t4, 0
                 li $s6, 0 				  #checks length of the string
+  	   convert:
+                beq $t9, $t8, end_convert #here using the subprogram, converting the characters using subprogramC and returned in $v0 and $v1
+                add $t6, $t7, $t9
+                lb $t5, ($t6)
+                la $a0, ($t5)
 
 
     
