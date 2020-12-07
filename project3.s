@@ -94,6 +94,10 @@
                 bgt $s6, 4, large_num	#if length of a valid string is greater than 4, then it's TOO large to deal with
                 li $v0, 1
                 j end_string
+	   large_num:
+                                       #Printing NaN for string larger than 4 characters
+                li $v0, 0
+                la $t4, not_valid
+                j end_string
 
-    
 
