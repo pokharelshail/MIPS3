@@ -115,5 +115,10 @@
    				blt $a0, 48, invalid 	#invaild if ascii value is less than 48, ascii value of 0 is 48
    				addi $v1, $0, 48 	#storing the ascii value to $v1
    				blt $a0, 58, valid 	#Value 0-9 is valid
+							#this will check the valid characters
+   				blt $a0, 65, invalid #invalid if the character is less than "A" in the ascii table
+   				addi $v1, $0, 55
+   				ble $a0, 89, valid #The last valid character is Y
+   				blt $a0, 97, invalid
 
 
