@@ -25,11 +25,11 @@
             la $a0, ($s1)	#loading arguments to make a subprogram_B call
             la $a1, ($s2)
 
-            			#calling subprogramB after passing the contents from a0 and a1
-            jal subprogram_B
-	    jal subprogram_C
+            			#calling subprogram_A after passing the contents from a0 and a1
+            jal subprogram_A
+	    jal subprogram_B
 
-            			#the return values of the subprogram_B stays in the stack which is used by the subprogram_C
+            			#the return values of the subprogram_B stays in the stack which is used by the subprogram_B
 
             			#ending the strings with end character and newline character
             beq $t2, 0, end_wl
@@ -56,6 +56,10 @@
                 lb $t5, ($t6)		    #loading the first word from the substring
 		beq $t5, 32, add_for_loop  #checks for loop continuation
                 beq $t5, 9, add_for_loop
-                j space_back #Checking the space at back
+                j back #Checking the space at back
+	   add_for_loop:	#code for iterating through the string
+                addi $t9, $t9, 1
+                j space_front
+
     
 
