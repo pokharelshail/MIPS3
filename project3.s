@@ -103,5 +103,10 @@
            			       #throwing a message for invalid character
                 li $v0, 0
                 la $t4, not_valid
+	   end_string:
+            #loading the stack with return values
+                addi $sp, $sp, -4
+                sw $t4, ($sp)
+                addi $sp, $sp, -4
 
 
