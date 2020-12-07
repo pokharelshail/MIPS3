@@ -90,6 +90,10 @@
                 addi $s6, $s6, 1	#incrementing s6 after processing each character
 		addi $t9, $t9, 1	#incrementing character count after processing each character
                 j convert
+	   end_convert:
+                bgt $s6, 4, large_num	#if length of a valid string is greater than 4, then it's TOO large to deal with
+                li $v0, 1
+                j end_string
 
     
 
