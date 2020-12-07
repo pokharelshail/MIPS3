@@ -60,6 +60,11 @@
 	   add_for_loop:	#code for iterating through the string
                 addi $t9, $t9, 1
                 j space_front
+		back:		#checking if there is space at the back of the string
+                beq $t9, $t8, end_deletion #if ends meet the begining, we end the process
+                add $t6, $t7, $t8
+                addi $t6, $t6, -1
+                lb $t5, ($t6)
 
     
 
