@@ -99,5 +99,9 @@
                 li $v0, 0
                 la $t4, not_valid
                 j end_string
+ 	   not_a_number:
+           			       #throwing a message for invalid character
+                li $v0, 0
+                la $t4, not_valid
 
 
