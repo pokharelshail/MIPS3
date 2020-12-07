@@ -88,6 +88,8 @@
                 sub $t6, $t5, $v1
                 add $t4, $t4, $t6
                 addi $s6, $s6, 1	#incrementing s6 after processing each character
+		addi $t9, $t9, 1	#incrementing character count after processing each character
+                j convert
 
     
 
