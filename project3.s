@@ -71,6 +71,11 @@
             down:
                 addi $t8, $t8, -1
                 j back
+	   end_deletion:
+                beq $t9, $t8, not_a_number #When the string is empty , then print NaN
+                li $t4, 0
+                li $s6, 0 				  #checks length of the string
+
 
     
 
