@@ -44,7 +44,7 @@
         			#This following set of lines is to end the program after calling all the subprograms.
             li $v0, 10
             syscall
-	    subprogram_B:
+	    subprogram_A:
             la $s7, ($ra)	#loading the value from $ra to register $s7
             la $t9, ($a0)	#loading the value from $a0 to register $t9
 
@@ -80,7 +80,7 @@
                 add $t6, $t7, $t9
                 lb $t5, ($t6)
                 la $a0, ($t5)
-	        jal sub_programA	#will check if the number is valid in our base system and then converts using subprogram.
+	        jal sub_programC	#will check if the number is valid in our base system and then converts using subprogram.
                 bne $v0, 0, continue
                 j not_a_number
  	   continue:             #converting the string  to decimal             
@@ -111,7 +111,7 @@
 	        sw $v0, ($sp)
                 la $ra, ($s7)
                 jr $ra
-	  sub_programA:
+	  sub_programC:
    				blt $a0, 48, invalid 	#invaild if ascii value is less than 48, ascii value of 0 is 48
    				addi $v1, $0, 48 	#storing the ascii value to $v1
    				blt $a0, 58, valid 	#Value 0-9 is valid
@@ -128,7 +128,7 @@
    				li $v0, 0
    				jr $ra
 	
-	subprogram_C:					#Will check overflow and process each substring
+	subprogram_B:					#Will check overflow and process each substring
    		        	lw $t8, ($sp)  #loading the arguments from the stack
 	   			addi $sp, $sp, 4
 	   			lw $t7, ($sp)
@@ -137,8 +137,11 @@
    				divu $t7, $t6
    				li $v0, 1
    				mflo $a0
-   				beq $a0, 0, overflow_checker #not ready to print
+   				beq $a0, 0, overflow_flag #not ready to print
    				syscall
+	
+	
+        
 
 	
 
