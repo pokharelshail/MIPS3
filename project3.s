@@ -120,6 +120,10 @@
    				addi $v1, $0, 55
    				ble $a0, 89, valid #The last valid character is Y
    				blt $a0, 97, invalid
+				addi $v1, $0, 87
+				ble $a0, 121, valid #The last valid character is y
+				bgt $a0, 121, invalid #invalid if ascii character is greater than 'y'
+
 
 			valid:			
            			li $v0, 1  #loading the number for valid and invalid
