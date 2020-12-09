@@ -121,4 +121,14 @@
    				ble $a0, 89, valid #The last valid character is Y
    				blt $a0, 97, invalid
 
+			valid:			
+           			li $v0, 1  #loading the number for valid and invalid
+   				jr $ra
+   			invalid:
+   				li $v0, 0
+   				jr $ra
+	
+
+
+
 
