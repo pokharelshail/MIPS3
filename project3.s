@@ -128,11 +128,19 @@
    				li $v0, 0
    				jr $ra
 	
-subprogram_C:		#Will check overflow and process each substring
-   		        lw $t8, ($sp)  #loading the arguments from the stack
-	   		addi $sp, $sp, 4
-	   		lw $t7, ($sp)
-	   		beq $t8, 0, not_okay #if $t8 equals 0, the string is not valid
+	subprogram_C:					#Will check overflow and process each substring
+   		        	lw $t8, ($sp)  #loading the arguments from the stack
+	   			addi $sp, $sp, 4
+	   			lw $t7, ($sp)
+	   			beq $t8, 0, not_okay #if $t8 equals 0, the string is not valid
+				li $t6, 10	#unsigned division by 10 to avoid overflow
+   				divu $t7, $t6
+   				li $v0, 1
+   				mflo $a0
+   				beq $a0, 0, overflow_checker #not ready to print
+   				syscall
+
+	
 
 
 
