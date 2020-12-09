@@ -141,7 +141,10 @@
    				syscall
 	
 	
-        
+        overflow_flag:					#changing the value of a0 to specify it not being ready to print
+   				mfhi $a0
+   				syscall
+   				j exit
 
 	
 
