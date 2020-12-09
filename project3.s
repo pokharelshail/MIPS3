@@ -128,7 +128,11 @@
    				li $v0, 0
    				jr $ra
 	
-
+subprogram_C:		#Will check overflow and process each substring
+   		        lw $t8, ($sp)  #loading the arguments from the stack
+	   		addi $sp, $sp, 4
+	   		lw $t7, ($sp)
+	   		beq $t8, 0, not_okay #if $t8 equals 0, the string is not valid
 
 
 
